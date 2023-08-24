@@ -1,37 +1,35 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ActivityIndicator,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, ActivityIndicator } from "react-native";
 
-import { styles } from "./styles/product";
+import Error from "./Error"; 
+import { styles } from "./styles/product"; 
 
+// Product component definition
 const Product = ({ route }) => {
   const { itemId } = route.params;
   const [product, setProduct] = useState({});
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0); // index of image to display in carousel
   const [loading, setLoading] = useState(true);
 
+  // Fetch product data
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(
-          `https://dummyjson.com/products/${itemId}`,
-        );
+        const response = await fetch(`https://dummyjson.com/products/${itemId}`);
         const data = await response.json();
         setProduct(data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
         setLoading(false);
+        // Returning Error component here might not be necessary, just an assumption based on your code
+        return Error;
       }
     };
     fetchProduct();
   }, [itemId]);
 
+  // Handle image carousel
   const handleCarousel = (direction) => {
     const newIndex =
       (currentIndex + direction + product.images.length) %
@@ -50,12 +48,15 @@ const Product = ({ route }) => {
 
   return (
     <View style={styles.container}>
+      {/* Product image */}
       {product.images && product.images.length > 0 && (
         <Image
           source={{ uri: product.images[currentIndex] }}
           style={styles.image}
         />
       )}
+
+      {/* Carousel buttons */}
       <View style={styles.carouselButtons}>
         <TouchableOpacity
           onPress={() => handleCarousel(-1)}
@@ -70,6 +71,8 @@ const Product = ({ route }) => {
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Product information */}
       <View style={styles.productInfo}>
         <Text style={styles.productTitle}>{product.title}</Text>
         <Text style={styles.productPrice}>Price: ${product.price}</Text>

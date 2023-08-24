@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, TextInput, FlatList, Image, Button, ActivityIndicator } from "react-native";
-import { styles } from "./styles/home"; // Assuming you have defined styles in a separate file
-import Error from "./Error"; // Assuming you have an Error component defined
+import { styles } from "./styles/home"; 
+import Error from "./Error"; 
 
 // HomeScreen component definition
 function HomeScreen({ navigation }) {
