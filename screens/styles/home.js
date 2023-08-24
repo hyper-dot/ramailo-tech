@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
+    paddingHorizontal: 10,
     backgroundColor: "#f7f7f7",
   },
   searchInput: {
@@ -20,13 +20,14 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     marginBottom: 10,
+    marginHorizontal: 5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowRadius: 8,
     elevation: 5,
   },
   productImage: {
