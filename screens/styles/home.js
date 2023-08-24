@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-export const homeStyles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
