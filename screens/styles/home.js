@@ -1,5 +1,10 @@
 import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
+  loading: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   container: {
     flex: 1,
     paddingHorizontal: 10,
@@ -47,8 +52,9 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 2,
   },
-  productDesc: {
+  productCat: {
     fontSize: 14,
     color: "#888",
+    marginBottom: 5,
   },
 });

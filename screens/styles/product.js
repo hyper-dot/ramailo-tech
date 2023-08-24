@@ -63,9 +63,9 @@ export const styles = StyleSheet.create({
   brand: {
     paddingVertical: 5,
     paddingHorizontal: 10,
-    backgroundColor: "gray",
+    // backgroundColor: "gray",
     borderRadius: 10,
-    color: "white",
+    color: "blue",
     marginTop: 10,
   },
 });
