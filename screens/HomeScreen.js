@@ -45,7 +45,7 @@ function HomeScreen({ navigation }) {
         }}
       />
       <FlatList
-        data={filteredProducts}
+        data={filteredProducts.length > 0 ? filteredProducts : products}
         renderItem={({ item }) => (
           <View style={styles.productContainer}>
             {item.images.length > 0 && (
